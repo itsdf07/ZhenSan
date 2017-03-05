@@ -6,8 +6,8 @@ import de.greenrobot.daogenerator.Schema;
 
 public class MyClass {
     //GreenDao 实体生成的路径
-    private static final String JAVAGREENDATPATH = "com.sdf.zhensan.greendao";
-    private static final String APPGREENDATPATH = "D:/Developer/WorkspaceGitHub/ZhenSan/ZhenSan/app/src/main/java-gen";
+    private static final String JAVAGREENDATPATH = "com.sdf.aso.common.db.model";
+    private static final String APPGREENDATPATH = "D:/Developer/WorkspaceGitHub/ZhenSan/ZhenSan/common/src/main/java";
 
     private static final String TABLE_HEROS = "Heros";//英雄角色数据表
 
