@@ -31,4 +31,5 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
     compile 'de.greenrobot:greendao:2.1.0'
+    compile project(':common')
 }
