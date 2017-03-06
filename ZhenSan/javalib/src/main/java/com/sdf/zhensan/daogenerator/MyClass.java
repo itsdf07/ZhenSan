@@ -4,20 +4,30 @@ import de.greenrobot.daogenerator.DaoGenerator;
 import de.greenrobot.daogenerator.Entity;
 import de.greenrobot.daogenerator.Schema;
 
+/**
+ * GreenDao 生成类
+ * Created by itsdf07 on 2017/2/20 13:15.
+ * E-Mail: 923255742@qq.com
+ * GitHub: https://github.com/itsdf07
+ */
 public class MyClass {
     //GreenDao 实体生成的路径
-    private static final String JAVAGREENDATPATH = "com.sdf.aso.common.db.model";
-    private static final String APPGREENDATPATH = "D:/Developer/WorkspaceGitHub/ZhenSan/ZhenSan/common/src/main/java";
+    //DaoMaster、DaoSession、xxxDao路径
+    private static final String GREENDAT_DAO_PATH = "com.sdf.zhensan.entity";
+    //Entity （实体）路径
+    private static final String GREENDAT_ENTITY_PATH = "com.sdf.zhensan.dao";
+    //GreenDao生成的四个路径的Module
+    private static final String GREENDAT_MODULE_PATH = "D:/Developer/WorkspaceGitHub/ZhenSan/ZhenSan/javalib/src/main/java";
 
     private static final String TABLE_HEROS = "Heros";//英雄角色数据表
 
     public static void main(String[] args) throws Exception {
         // 正如你所见的，你创建了一个用于添加实体（Entity）的模式（Schema）对象。
         // 两个参数分别代表：数据库版本号与自动生成代码的包路径。
-        Schema schema = new Schema(1, JAVAGREENDATPATH);
+//        Schema schema = new Schema(1, JAVAGREENDATPATH);
 //      当然，如果你愿意，你也可以分别指定生成的 Bean 与 DAO 类所在的目录，只要如下所示：
-//      Schema schema = new Schema(1, JAVAGREENDATPATH);
-//      schema.setDefaultJavaPackageDao(JAVAGREENDATPATH);
+        Schema schema = new Schema(1, GREENDAT_DAO_PATH);//DaoMaster、DaoSession、xxxDao路径
+        schema.setDefaultJavaPackageDao(GREENDAT_ENTITY_PATH);//Entity （实体）路径
 
         // 模式（Schema）同时也拥有两个默认的 flags，分别用来标示 entity 是否是 activie 以及是否使用 keep sections。
         // schema2.enableActiveEntitiesByDefault();
@@ -28,7 +38,7 @@ public class MyClass {
 
         // 最后我们将使用 DAOGenerator 类的 generateAll() 方法自动生成代码，此处你需要根据自己的情况更改输出目录（既之前创建的 java-gen)。
         // 其实，输出目录的路径可以在 build.gradle 中设置，有兴趣的朋友可以自行搜索，这里就不再详解。
-        new DaoGenerator().generateAll(schema, APPGREENDATPATH);
+        new DaoGenerator().generateAll(schema, GREENDAT_MODULE_PATH);//GreenDao生成的四个路径的Module
     }
 
     /**
