@@ -42,9 +42,9 @@ public class DbManager {
      * 1、检查数据库相关：
      * 2、取得DaoMaster和DaoSession
      */
-    private DbManager() {
+    private DbManager(Context context) {
 
-        updateLocale(mContext, DB_NAME);
+        updateLocale(context, DB_NAME);
 
         getDaoMaster();
         getDaoSession();
@@ -65,10 +65,11 @@ public class DbManager {
      *
      * @return
      */
-    public static DbManager getInstance() {
+    public static DbManager getInstance(Context context) {
+        mContext = context;
         if (mInstance == null) {
             synchronized (DbManager.class) {
-                mInstance = new DbManager();
+                mInstance = new DbManager(context);
             }
         }
         return mInstance;

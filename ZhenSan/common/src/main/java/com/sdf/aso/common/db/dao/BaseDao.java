@@ -20,7 +20,7 @@ public class BaseDao<T> {
     public DaoSession mDaoSession;
 
     public BaseDao(Context context) {
-        mDbManager = DbManager.getInstance();
+        mDbManager = DbManager.getInstance(context);
         mDbManager.init(context);
         mDaoSession = mDbManager.getDaoSession();
         mDbManager.setDebug(DUBUG);

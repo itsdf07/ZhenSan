@@ -20,6 +20,6 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        DbManager.getInstance().init(getApplicationContext());
+        DbManager.getInstance(getApplicationContext());
     }
 }
