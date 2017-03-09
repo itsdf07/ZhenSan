@@ -18,14 +18,18 @@ import java.io.UnsupportedEncodingException;
 public class FileUtils {
     private static final String TAG = FileUtils.class.getSimpleName();
 
-    public static String getRawResource(Context context, String file) {
-//        InputStream inputStream = context.getResources().openRawResource(raw);//读取res/raw/下的文件
+    public static String getAssetsResource(Context context, String file) {
         InputStream inputStream = null;
         try {
             inputStream = context.getResources().getAssets().open(file);//读取assets/下的文件
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return getString(inputStream);
+    }
+
+    public static String getRawResource(Context context, int raw) {
+        InputStream inputStream = context.getResources().openRawResource(raw);//读取res/raw/下的文件
         return getString(inputStream);
     }
 

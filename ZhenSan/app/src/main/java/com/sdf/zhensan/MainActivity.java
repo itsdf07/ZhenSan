@@ -11,6 +11,6 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        FileUtils.getRawResource(getApplicationContext(),"heros.txt");
+        FileUtils.getAssetsResource(getApplicationContext(), "heros.txt");
     }
 }
