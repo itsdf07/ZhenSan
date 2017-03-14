@@ -2,6 +2,7 @@ package com.sdf.aso.common.application;
 
 import android.app.Application;
 
+import com.sdf.aso.common.crash.CrashHandler;
 import com.sdf.aso.common.db.manager.DbManager;
 import com.sdf.aso.common.db.dao.DaoMaster;
 import com.sdf.aso.common.db.dao.DaoSession;
@@ -20,6 +21,7 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        DbManager.getInstance(getApplicationContext());
+        DbManager.getInstance(getApplicationContext());//初始化数据库
+        CrashHandler.getInstance().init(getApplicationContext());//注册CrashException，捕获崩溃
     }
 }
