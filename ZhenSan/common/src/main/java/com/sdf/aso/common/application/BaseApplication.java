@@ -6,6 +6,7 @@ import com.sdf.aso.common.crash.CrashHandler;
 import com.sdf.aso.common.db.manager.DbManager;
 import com.sdf.aso.common.db.dao.DaoMaster;
 import com.sdf.aso.common.db.dao.DaoSession;
+import com.sdf.aso.common.file.FileUtils;
 
 /**
  * 自定义Application
@@ -21,6 +22,7 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        FileUtils.INNERSDPATH = FileUtils.getInnerSDPath(getApplicationContext());
         DbManager.getInstance(getApplicationContext());//初始化数据库
         CrashHandler.getInstance().init(getApplicationContext());//注册CrashException，捕获崩溃
     }
