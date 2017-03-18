@@ -1,12 +1,14 @@
 package com.sdf.aso.common.application;
 
 import android.app.Application;
+import android.util.Log;
 
 import com.sdf.aso.common.crash.CrashHandler;
 import com.sdf.aso.common.db.manager.DbManager;
 import com.sdf.aso.common.db.dao.DaoMaster;
 import com.sdf.aso.common.db.dao.DaoSession;
 import com.sdf.aso.common.file.FileUtils;
+import com.sdf.aso.common.global.GlobalUtiles;
 
 /**
  * 自定义Application
@@ -22,7 +24,8 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        FileUtils.INNERSDPATH = FileUtils.getInnerSDPath(getApplicationContext());
+        FileUtils.INNERSDPATH = FileUtils.getInnerSDPath(getApplicationContext()) + GlobalUtiles.BASE_PATH;;
+        Log.d("dfsu","INNERSDPATH = " + FileUtils.INNERSDPATH);
         DbManager.getInstance(getApplicationContext());//初始化数据库
         CrashHandler.getInstance().init(getApplicationContext());//注册CrashException，捕获崩溃
     }

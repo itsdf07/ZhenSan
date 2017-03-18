@@ -3,27 +3,20 @@ package com.sdf.aso.common.file;
 import android.content.Context;
 import android.os.Environment;
 import android.os.storage.StorageManager;
-import android.support.annotation.Nullable;
-import android.text.TextUtils;
 import android.util.Log;
 
 import com.sdf.aso.common.StringUtils;
 import com.sdf.aso.common.global.GlobalUtiles;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Method;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 
 /**
  * 1、根据文件路径获取文件：getFileByPath(String filePath)
